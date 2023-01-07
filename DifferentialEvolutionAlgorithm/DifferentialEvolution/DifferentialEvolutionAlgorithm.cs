@@ -1,90 +1,131 @@
 ﻿using DEForUrbanTransitRoutingProblem.DE;
-using DifferentialEvolution.Helpers;
 
 namespace DifferentialEvolution.DE
 {
     public class DifferentialEvolutionAlgorithm
     {
-        public Population Population { get; set; }
         public Parameters Parameters { get; set; }
+        private static Random _rand = new Random();
 
-        public DifferentialEvolutionAlgorithm(Population population, Parameters parameters)
+        public DifferentialEvolutionAlgorithm(Parameters parameters)
         {
-            Population = population;
             Parameters = parameters;
         }
 
-        public void Solve(IOptimizationProblem problem, int maxEvaluations, double CR, double F)
+        public void Solve(IOptimizationProblem problem, int maxGenerations, double CR, double F, int populationSize)
         {
-            Population.Evaluate(problem);
-            
-            while (maxEvaluations > 0)
+            //initializare populatie
+            Chromosome[] population = new Chromosome[populationSize];//vector de indivizi
+            for (int i = 0; i < population.Length; i++)
+            {
+                //initializez cromozom, in functie de genele necesare problemei pe care o rezolv
+                population[i] = problem.MakeChromosome();//initializez pe rand fiecare cromozom
+                problem.ComputeFitness(population[i]);
+            }
+
+            for (int generation = 0; generation < maxGenerations; generation++)
             {
                 List<Chromosome> newGeneration = new List<Chromosome>();
 
-                foreach (var orginal in Population.Solutions)
+                foreach (var child in population.ToList())
                 {
-                    // generate unique random numbers
-                    List<int> randomValues = RandomGenerator.GenerateRandom(3, 0, Population.Solutions.Count);
-                    int i1 = randomValues[0];
-                    int i2 = randomValues[1];
-                    int i3 = randomValues[2];
-
-                    // choose random individuals (agents) from population
-                    Chromosome individual1 = Population.Solutions[i1];
-                    Chromosome individual2 = Population.Solutions[i2];
-                    Chromosome individual3 = Population.Solutions[i3];
-                    
-                    int currentGene = 0;
-                    int dividingPoint = RandomGenerator.Instance.Random.Next(Population.Solutions.Count);
-                    Chromosome candidate = new Chromosome();
-                    foreach (var orginalElement in orginal.Genes)
+                    Random random = new Random();
+                    //creez o lista cu numere random distincte
+                    List<int> randomValuesList = new List<int>();
+                    //generez lista de valori random cu valori intre 0 si nr. de indivizi din populatie 
+                    while (randomValuesList.Count < 3)
                     {
-                        double ri = RandomGenerator.Instance.Random.NextDouble();
-                        if (ri < CR || currentGene == dividingPoint)
-                        {
-                            // mutation
-                            double newElement = individual1.Genes[currentGene] + F * (individual2.Genes[currentGene] - individual3.Genes[currentGene]);
+                        int index = random.Next(0, population.Length - 1);
+                        if (!randomValuesList.Contains(index))
+                            randomValuesList.Add(index);
+                    }
+                    int i1 = randomValuesList[0];
+                    int i2 = randomValuesList[1];
+                    int i3 = randomValuesList[2];
 
-                            // crossover
-                            if (CheckIfWithinDomain(newElement))
-                                candidate.Genes.Add(newElement);
+                    // initializez cromozomii folositi pt. mutatie cu indivizii selectati random de mai sus
+                    Chromosome cr1 = population[i1];
+                    Chromosome cr2 = population[i2];
+                    Chromosome cr3 = population[i3];
+
+                    Chromosome mutantChild = new Chromosome(cr1);
+
+                    //creare copil mutant
+                    for (int i = 0; i < mutantChild.NoGenes; i++)
+                    {
+                        mutantChild.Genes[i] = cr1.Genes[i] + F * (cr2.Genes[i] - cr3.Genes[i]);
+                    }
+
+                    Chromosome resultCrossover = new Chromosome(mutantChild);
+
+                    //generare valoare random cuprinsa intre 1 si nr. de indivizi din populatie
+                    int delta = _rand.Next(1, population.Length-1);
+
+                    for(int gene = 0; gene < child.NoGenes; gene++)
+                    {
+                        double k = _rand.NextDouble();
+                        if (k < CR || gene == delta)
+                        { 
+                            // incrucisare
+                            if (gene > Parameters.Domain.Item1 && gene < Parameters.Domain.Item2)
+                            {
+                                for (int i = 0; i < mutantChild.NoGenes; i++)
+                                {
+                                    resultCrossover.Genes[i] = mutantChild.Genes[i];
+                                }
+                            }
                             else
-                                candidate.Genes.Add(orginalElement);
+                            {
+                                for (int i = 0; i < child.NoGenes; i++)
+                                {
+                                    resultCrossover.Genes[i] = child.Genes[i];
+                                }
+                            }
                         }
                         else
                         {
-                            candidate.Genes.Add(orginalElement);
+                            for (int i = 0; i < child.NoGenes; i++)
+                            {
+                                resultCrossover.Genes[i] = child.Genes[i];
+                            }
                         }
-
-                        currentGene++;
+                    }        
+                    // selectie
+                    resultCrossover.Evaluate(problem);
+                    child.Evaluate(problem);
+                    if (resultCrossover.Fitness < child.Fitness) // < deoarece aavem de a face cu o problema de minimizare
+                        newGeneration.Add(resultCrossover);
+                    else
+                        newGeneration.Add(child);
                     }
 
-                    // selection
-                    candidate.Evaluate(problem);
-                    orginal.Evaluate(problem);
-                    if (candidate.Fitness < orginal.Fitness) // < deoarece aavem de a face cu o problema de minimizare
-                        newGeneration.Add(candidate);
-                    else
-                        newGeneration.Add(orginal);
-                }
+                // actualizeaza populatie
+                population = newGeneration.ToArray();
+                Chromosome best = GetBest(population);
 
-                // switch populations
-                Population.Solutions = newGeneration;
-                maxEvaluations--;
-
-                Chromosome best = Population.GetBest();
-
-                Console.Write("Fitness: " + Math.Round(best.Fitness, 4));
-                Console.WriteLine(string.Format(" - coordinate: ({0})", best.ToString()));
+                Console.Write("Pentru generatia {0} valoarea fitness este {1} cu cromozomul [{2}", generation, Math.Round(best.Fitness, 3), best.ToString());
+                Console.WriteLine(']');
             }
-
-            Console.WriteLine("Run complete");
         }
 
-        private bool CheckIfWithinDomain(double newElement)
+        public static Chromosome GetBest(Chromosome[] population)
         {
-            return newElement > Parameters.Domain.Item1 && newElement < Parameters.Domain.Item2;
+            //pp. ca elementul maxim este primul din populatie
+            double max = population[0].Fitness;
+            //obiect nou, copie a celui mai bun individ
+            Chromosome chromWithMaxFitness = new Chromosome(population[0]);
+
+            //Returnează individul din populație cu funcția de adaptare maximă SAU MINIMA????????????????????
+            for (int i = 1; i < population.Length; i++)
+            {
+                if (population[i].Fitness > max)
+                {
+                    max = population[i].Fitness;
+                    chromWithMaxFitness = new Chromosome(population[i]);
+                }
+            }
+
+            return chromWithMaxFitness;
         }
     }
 }

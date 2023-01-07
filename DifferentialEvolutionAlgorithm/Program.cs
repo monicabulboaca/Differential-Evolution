@@ -1,12 +1,11 @@
 ﻿using DEForUrbanTransitRoutingProblem.DE;
 using DifferentialEvolution.DE;
-using DifferentialEvolution.Helpers;
 
 namespace DifferentialEvolution
 {
     class Program
     {
-        public static Tuple<double, double> SphereDomain = new Tuple<double, double>(-5.12, 5.12);
+        public static Tuple<double, double> MichalewiczDomain = new Tuple<double, double>(0, Math.PI);
 
         static void Main()
         {
@@ -15,65 +14,48 @@ namespace DifferentialEvolution
                 Dimensions = 2,
                 F = 0.5,
                 CR = 0.9,
-                Domain = SphereDomain,
+                Domain = MichalewiczDomain,
                 ChromosomesCount = 20,
                 Iterations = 100
             };
 
-            Population population = CreatePopulation(parameters);
-            DifferentialEvolutionAlgorithm de = new DifferentialEvolutionAlgorithm(population, parameters);
+            DifferentialEvolutionAlgorithm de = new DifferentialEvolutionAlgorithm(parameters);
 
-            de.Solve(new Sphere(), parameters.Iterations, parameters.CR, parameters.F);
-        }
+            de.Solve(new MichalewiczFunction(2), parameters.Iterations, parameters.CR, parameters.F, parameters.ChromosomesCount);
 
-        public static Population CreatePopulation(Parameters parameters)
-        {
-            List<Chromosome> individuals = new List<Chromosome>();
-            for (int i = 1; i < parameters.ChromosomesCount; i++)
-            {
-                Chromosome individual = new Chromosome();
-
-                for (int j = 0; j < parameters.Dimensions; j++)
-                {
-                    double randomNumber = RandomGenerator.GetDoubleRangeRandomNumber(parameters.Domain.Item1, parameters.Domain.Item2);
-                    individual.Genes.Add(randomNumber);
-                }
-
-                individuals.Add(individual);
-            }
-
-            Console.WriteLine("Population: ");
-            for(int i = 0; i < individuals.Count; i++)
-            {
-                Console.WriteLine(individuals[i]);
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            return new Population(individuals);
         }
     }
 
-    public class Sphere : IOptimizationProblem
+    /// <summary>
+    /// minimul e la f(2.20, 1.57) = -1.8013
+    /// </summary>
+    public class MichalewiczFunction : IOptimizationProblem
     {
+        public int dimensions;
+
+        public MichalewiczFunction(int dim)
+        {
+            dimensions = dim;
+        }
         public Chromosome MakeChromosome()
         {
-            // un cromozom are doua gene (x si y) care pot lua valori in intervalul (5.12, -5.12)
-            return new Chromosome(2, new double[] { -5.12 }, new double[] { 5.12 });
+            // un cromozom are doua gene (x si y) care pot lua valori in intervalul (0, PI)
+            return new Chromosome(2, new double[] { 0 }, new double[] { Math.PI });
         }
-
-        /// <summary>
-        /// min is at f(0,0) = 0
-        /// </summary>
-        public void ComputeFitness(Chromosome individual)
+        public void ComputeFitness(Chromosome cr)
         {
+            double rez = 0;
             double sum = 0;
+            double m = 10;
 
-            foreach (double x in individual.Genes)
+            for (int i = 0; i < dimensions; i++)
             {
-                sum += Math.Pow(x, 2);
+                sum += Math.Sin(cr.Genes[i]) * Math.Pow(Math.Sin(((i + 1) * Math.Pow(cr.Genes[i], 2))/ Math.PI), 2 * m);
             }
-            individual.Fitness = sum;
+
+            rez = -1 * sum;
+            cr.Fitness = rez;
         }
     }
+    
 }

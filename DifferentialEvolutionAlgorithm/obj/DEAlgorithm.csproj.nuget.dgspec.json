@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj": {}
+    "C:\\AN 4\\SEM 1\\EP\\varianta2_proiect\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj": {
+    "C:\\AN 4\\SEM 1\\EP\\varianta2_proiect\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
+        "projectUniqueName": "C:\\AN 4\\SEM 1\\EP\\varianta2_proiect\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
         "projectName": "DEAlgorithm",
-        "projectPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
-        "packagesPath": "C:\\Users\\monic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\obj\\",
+        "projectPath": "C:\\AN 4\\SEM 1\\EP\\varianta2_proiect\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
+        "packagesPath": "C:\\Users\\Larisa\\.nuget\\packages\\",
+        "outputPath": "C:\\AN 4\\SEM 1\\EP\\varianta2_proiect\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\monic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Larisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,8 +45,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -55,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
