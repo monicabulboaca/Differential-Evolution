@@ -24,7 +24,7 @@ namespace DifferentialEvolution.DE
             return population;
         }
 
-        private Chromosome Mutation(Chromosome[] population, double F)
+        public Chromosome Mutation(Chromosome[] population, double F)
         {
             Chromosome mutantChild;
             Random random = new Random();
