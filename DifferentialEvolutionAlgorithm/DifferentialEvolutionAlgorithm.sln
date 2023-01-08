@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEAlgorithm", "DEAlgorithm.csproj", "{1A9DAF95-1A42-4831-9A3A-AD60A52076BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testare", "..\Testare\Testare.csproj", "{8C7C3C6D-557E-4E0E-8F5D-ACC550617297}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1A9DAF95-1A42-4831-9A3A-AD60A52076BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A9DAF95-1A42-4831-9A3A-AD60A52076BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A9DAF95-1A42-4831-9A3A-AD60A52076BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7C3C6D-557E-4E0E-8F5D-ACC550617297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7C3C6D-557E-4E0E-8F5D-ACC550617297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7C3C6D-557E-4E0E-8F5D-ACC550617297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7C3C6D-557E-4E0E-8F5D-ACC550617297}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

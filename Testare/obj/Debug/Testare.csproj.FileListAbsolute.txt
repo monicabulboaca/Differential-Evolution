@@ -1,0 +1,15 @@
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Testare.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Testare.pdb
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.csproj.AssemblyReference.cache
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.csproj.CoreCompileInputs.cache
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.csproj.CopyComplete
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.dll
+C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.pdb

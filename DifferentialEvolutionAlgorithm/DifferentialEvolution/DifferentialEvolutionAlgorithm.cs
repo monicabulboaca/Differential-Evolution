@@ -114,7 +114,7 @@ namespace DifferentialEvolution.DE
                         newGeneration.Add(resultCrossover);
                     else
                         newGeneration.Add(child);
-                    }
+                }
 
                 // actualizeaza populatie
                 population = newGeneration.ToArray();
@@ -128,16 +128,16 @@ namespace DifferentialEvolution.DE
         public static Chromosome GetBest(Chromosome[] population)
         {
             //pp. ca elementul maxim este primul din populatie
-            double max = population[0].Fitness;
+            double min = population[0].Fitness;
             //obiect nou, copie a celui mai bun individ
             Chromosome chromWithMaxFitness = new Chromosome(population[0]);
 
             //Returnează individul din populație cu funcția de adaptare maximă SAU MINIMA????????????????????
             for (int i = 1; i < population.Length; i++)
             {
-                if (population[i].Fitness > max)
+                if (population[i].Fitness < min)
                 {
-                    max = population[i].Fitness;
+                    min = population[i].Fitness;
                     chromWithMaxFitness = new Chromosome(population[i]);
                 }
             }
