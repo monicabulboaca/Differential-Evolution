@@ -44,7 +44,6 @@ namespace DifferentialEvolution
         }
         public void ComputeFitness(Chromosome cr)
         {
-            double rez = 0;
             double sum = 0;
             double m = 10;
 
@@ -53,8 +52,7 @@ namespace DifferentialEvolution
                 sum += Math.Sin(cr.Genes[i]) * Math.Pow(Math.Sin(((i + 1) * Math.Pow(cr.Genes[i], 2))/ Math.PI), 2 * m);
             }
 
-            rez = -1 * sum;
-            cr.Fitness = rez;
+            cr.Fitness = -1 * sum;
         }
     }
     

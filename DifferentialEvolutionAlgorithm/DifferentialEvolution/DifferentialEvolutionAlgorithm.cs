@@ -11,10 +11,10 @@ namespace DifferentialEvolution.DE
             Parameters = parameters;
         }
 
-        private Chromosome[] CreatePopulation(IOptimizationProblem problem, int populationSize)
+        public Chromosome[] CreatePopulation(IOptimizationProblem problem, int populationSize)
         {
             //initializare populatie
-            Chromosome[] population = new Chromosome[populationSize];//vector de indivizi
+            Chromosome[] population = new Chromosome[populationSize]; //vector de indivizi
             for (int i = 0; i < population.Length; i++)
             {
                 //initializez cromozom, in functie de genele necesare problemei pe care o rezolv
