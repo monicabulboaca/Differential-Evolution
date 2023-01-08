@@ -13,3 +13,5 @@ C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Te
 C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.csproj.CopyComplete
 C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.dll
 C:\AN 4\SEM 1\EP\proiect\doar-monica\Differential-Evolution\Testare\obj\Debug\Testare.pdb
+C:\Users\monic\Desktop\AnIV\Differential-Evolution\Testare\obj\Debug\Testare.dll
+C:\Users\monic\Desktop\AnIV\Differential-Evolution\Testare\obj\Debug\Testare.pdb

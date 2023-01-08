@@ -9,7 +9,7 @@ namespace Testare
         [TestMethod]
         public void TestMethodCreatePopulation()
         {
-            IOptimizationProblem problem = new MichalewiczFunction(2);
+           // IOptimizationProblem problem = new MichalewiczFunction(2);
             int populationSize = 100;
         }
     }
