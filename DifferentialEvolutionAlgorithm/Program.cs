@@ -1,4 +1,4 @@
-﻿using DEForUrbanTransitRoutingProblem.DE;
+﻿
 using DifferentialEvolution.DE;
 
 namespace DifferentialEvolution

@@ -1,5 +1,4 @@
-﻿using DEForUrbanTransitRoutingProblem.DE;
-
+﻿
 namespace DifferentialEvolution.DE
 {
     public class DifferentialEvolutionAlgorithm
@@ -95,22 +94,22 @@ namespace DifferentialEvolution.DE
         public void Solve(IOptimizationProblem problem, int maxGenerations, double CR, double F, int populationSize)
         {
 
-            Chromosome[] population = CreatePopulation(problem, populationSize);    
+            Chromosome[] population = CreatePopulation(problem, populationSize);
             for (int generation = 0; generation < maxGenerations; generation++)
             {
                 List<Chromosome> newGeneration = new List<Chromosome>();
                 foreach (var child in population.ToList())
                 {
-                    
+
                     Chromosome mutantChild = Mutation(population, F);
 
                     Chromosome resultCrossover = new Chromosome(mutantChild);
                     Crossover(population, child, mutantChild, resultCrossover, CR);
-                    
+
                     // selectie
                     resultCrossover.Evaluate(problem);
                     child.Evaluate(problem);
-                    if (resultCrossover.Fitness < child.Fitness) 
+                    if (resultCrossover.Fitness < child.Fitness)
                         newGeneration.Add(resultCrossover);
                     else
                         newGeneration.Add(child);

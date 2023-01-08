@@ -1,7 +1,4 @@
-﻿using DEForUrbanTransitRoutingProblem.DE;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace DifferentialEvolution.DE
 {
@@ -40,7 +37,7 @@ namespace DifferentialEvolution.DE
             MinValues = new double[noGenes];
             MaxValues = new double[noGenes];
 
-            for (int i = 0; i < noGenes-1; i++)
+            for (int i = 0; i < noGenes - 1; i++)
             {
                 MinValues[i] = minValues[i];
                 MaxValues[i] = maxValues[i];
