@@ -1,0 +1,2 @@
+coca_cola B 38
+caffe_latte B 70

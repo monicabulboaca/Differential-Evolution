@@ -1,59 +1,53 @@
 ﻿
+using DEAlgorithm.FileData;
 using DifferentialEvolution.DE;
 
 namespace DifferentialEvolution
 {
     class Program
     {
-        public static Tuple<double, double> MichalewiczDomain = new Tuple<double, double>(0, Math.PI);
 
         static void Main()
         {
             Parameters parameters = new Parameters
             {
-                Dimensions = 2,
                 F = 0.5,
                 CR = 0.9,
-                Domain = MichalewiczDomain,
                 ChromosomesCount = 20,
                 Iterations = 100
             };
 
             DifferentialEvolutionAlgorithm de = new DifferentialEvolutionAlgorithm(parameters);
 
-            de.Solve(new MichalewiczFunction(2), parameters.Iterations, parameters.CR, parameters.F, parameters.ChromosomesCount);
+            de.Solve(new CRDP(), parameters.Iterations, parameters.CR, parameters.F, parameters.ChromosomesCount);
 
         }
     }
 
-    /// <summary>
-    /// minimul e la f(2.20, 1.57) = -1.8013
-    /// </summary>
-    public class MichalewiczFunction : IOptimizationProblem
+    public class CRDP : IOptimizationProblem
     {
-        public int dimensions;
 
-        public MichalewiczFunction(int dim)
+        public CRDP()
         {
-            dimensions = dim;
         }
+
         public Chromosome MakeChromosome()
         {
-            // un cromozom are doua gene (x si y) care pot lua valori in intervalul (0, PI)
-            return new Chromosome(2, new double[] { 0 }, new double[] { Math.PI });
+            return new Chromosome(17);
         }
+
         public void ComputeFitness(Chromosome cr)
         {
-            double sum = 0;
-            double m = 10;
+            double kcal = 0;
+            var KC = ReadFromFile.readKcal();
 
-            for (int i = 0; i < dimensions; i++)
+            // calc kcal
+            for(int i = 0; i < cr.NoGenes; i++)
             {
-                sum += Math.Sin(cr.Genes[i]) * Math.Pow(Math.Sin(((i + 1) * Math.Pow(cr.Genes[i], 2))/ Math.PI), 2 * m);
+                kcal += KC[i] * cr.Genes[i];
             }
 
-            cr.Fitness = -1 * sum;
+            cr.Fitness = Math.Abs(1200 - kcal);
         }
     }
-    
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
+      "projectUniqueName": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
       "projectName": "DEAlgorithm",
-      "projectPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
+      "projectPath": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj",
       "packagesPath": "C:\\Users\\monic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\obj\\",
+      "outputPath": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\monic\\AppData\\Roaming\\NuGet\\NuGet.Config",

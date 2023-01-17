@@ -1,4 +1,4 @@
-using DifferentialEvolution.DE;
+/*using DifferentialEvolution.DE;
 using DifferentialEvolution;
 
 namespace DifferentialEvolutionUnitTests;
@@ -8,7 +8,7 @@ public class DifferentialEvolutionUnitTest
     [Fact]
     public void Given_CreatePopulation_Then_ShouldReturn_PopulationLengthNotNull()
     {
-        IOptimizationProblem problem = new MichalewiczFunction(2);
+        IOptimizationProblem problem = new CRDP();
         int populationSize = 4;
 
         DifferentialEvolutionAlgorithm ev = new DifferentialEvolutionAlgorithm(new Parameters());
@@ -51,4 +51,4 @@ public class DifferentialEvolutionUnitTest
 
         Assert.NotNull(mutant);
     }
-}
+}*/

@@ -1,0 +1,7 @@
+food_category	nr_portii
+fructe			23
+lactate			19
+carbohidrati	4
+legume			27
+bauturi			17
+proteine		28

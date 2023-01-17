@@ -103,3 +103,12 @@ C:\Users\monic\Desktop\AnIV\Differential-Evolution\DifferentialEvolutionUnitTest
 C:\Users\monic\Desktop\AnIV\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.pdb
 C:\Users\monic\Desktop\AnIV\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.genruntimeconfig.cache
 C:\Users\monic\Desktop\AnIV\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\ref\DifferentialEvolutionUnitTests.dll
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.csproj.AssemblyReference.cache
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.AssemblyInfoInputs.cache
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.AssemblyInfo.cs
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.csproj.CoreCompileInputs.cache
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.dll
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\refint\DifferentialEvolutionUnitTests.dll
+C:\Users\monic\Desktop\Differential-Evolution\DifferentialEvolutionUnitTests\obj\Debug\net6.0\DifferentialEvolutionUnitTests.pdb

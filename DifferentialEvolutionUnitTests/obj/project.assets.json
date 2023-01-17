@@ -6130,11 +6130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionUnitTests\\DifferentialEvolutionUnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionUnitTests\\DifferentialEvolutionUnitTests.csproj",
       "projectName": "DifferentialEvolutionUnitTests",
-      "projectPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionUnitTests\\DifferentialEvolutionUnitTests.csproj",
+      "projectPath": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionUnitTests\\DifferentialEvolutionUnitTests.csproj",
       "packagesPath": "C:\\Users\\monic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionUnitTests\\obj\\",
+      "outputPath": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionUnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\monic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6151,8 +6151,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj": {
-              "projectPath": "C:\\Users\\monic\\Desktop\\AnIV\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj"
+            "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj": {
+              "projectPath": "C:\\Users\\monic\\Desktop\\Differential-Evolution\\DifferentialEvolutionAlgorithm\\DEAlgorithm.csproj"
             }
           }
         }

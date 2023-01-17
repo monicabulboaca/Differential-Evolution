@@ -49,7 +49,7 @@ namespace DifferentialEvolution.DE
             //creare copil mutant
             for (int i = 0; i < mutantChild.NoGenes; i++)
             {
-                mutantChild.Genes[i] = cr1.Genes[i] + F * (cr2.Genes[i] - cr3.Genes[i]);
+                mutantChild.Genes[i] = cr1.Genes[i] + F * (cr2.Genes[i] - cr3.Genes[i]); // de ce e scadere?
             }
 
             return mutantChild;
@@ -64,7 +64,7 @@ namespace DifferentialEvolution.DE
                 double k = _rand.NextDouble();
                 if (k < CR || gene == delta)
                 {
-                    if (gene > Parameters.Domain.Item1 && gene < Parameters.Domain.Item2)
+                    if (gene > 0.5 && gene < 3)
                     {
                         for (int i = 0; i < mutantChild.NoGenes; i++)
                         {
@@ -90,17 +90,20 @@ namespace DifferentialEvolution.DE
         }
 
 
-
         public void Solve(IOptimizationProblem problem, int maxGenerations, double CR, double F, int populationSize)
         {
 
-            Chromosome[] population = CreatePopulation(problem, populationSize);
             for (int generation = 0; generation < maxGenerations; generation++)
             {
+                Chromosome[] population = CreatePopulation(problem, populationSize);
+                for (int i = 0; i < population.Length; i++)
+                {
+                    Console.Write(population[i] + "\n");
+                }
+
                 List<Chromosome> newGeneration = new List<Chromosome>();
                 foreach (var child in population.ToList())
                 {
-
                     Chromosome mutantChild = Mutation(population, F);
 
                     Chromosome resultCrossover = new Chromosome(mutantChild);
@@ -121,6 +124,7 @@ namespace DifferentialEvolution.DE
 
                 Console.Write("Pentru generatia {0} valoarea fitness este {1} cu cromozomul [{2}", generation, Math.Round(best.Fitness, 3), best.ToString());
                 Console.WriteLine(']');
+                Console.WriteLine("----------------------------------------------------------------------------------------------");
             }
         }
 
@@ -131,7 +135,6 @@ namespace DifferentialEvolution.DE
             //obiect nou, copie a celui mai bun individ
             Chromosome chromWithMaxFitness = new Chromosome(population[0]);
 
-            //Returnează individul din populație cu funcția de adaptare maximă SAU MINIMA????????????????????
             for (int i = 1; i < population.Length; i++)
             {
                 if (population[i].Fitness < min)

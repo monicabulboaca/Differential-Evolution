@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace DifferentialEvolution.DE
 {
@@ -7,8 +8,9 @@ namespace DifferentialEvolution.DE
         public int NoGenes { get; set; } // numarul de gene ale individului
         public double Fitness { get; set; }
         public double[] Genes { get; set; } // valorile genelor
-        public double[] MinValues { get; set; } // valorile minime posibile ale genelor
-        public double[] MaxValues { get; set; } // valorile maxime posibile ale genelor
+
+        public static double minBound = 0.5;
+        public static double maxBound = 3;
 
         private static Random _rand = new Random();
 
@@ -19,30 +21,21 @@ namespace DifferentialEvolution.DE
             Fitness = c.Fitness;
 
             Genes = new double[c.NoGenes];
-            MinValues = new double[c.NoGenes];
-            MaxValues = new double[c.NoGenes];
 
             for (int i = 0; i < c.Genes.Length; i++)
             {
                 Genes[i] = c.Genes[i];
-                MinValues[i] = c.MinValues[i];
-                MaxValues[i] = c.MaxValues[i];
             }
         }
 
-        public Chromosome(int noGenes, double[] minValues, double[] maxValues)
+        public Chromosome(int noGenes)
         {
             NoGenes = noGenes;
             Genes = new double[noGenes];
-            MinValues = new double[noGenes];
-            MaxValues = new double[noGenes];
 
-            for (int i = 0; i < noGenes - 1; i++)
+            for (int i = 0; i < noGenes ; i++)
             {
-                MinValues[i] = minValues[i];
-                MaxValues[i] = maxValues[i];
-
-                Genes[i] = minValues[i] + _rand.NextDouble() * (maxValues[i] - minValues[i]); // initializare aleatorie a genelor
+                Genes[i] = _rand.NextDouble() * (maxBound - minBound) + minBound;
             }
         }
 

@@ -8,9 +8,7 @@ namespace DifferentialEvolution.DE
         public double CR { get; set; }
         public int ChromosomesCount { get; set; }
         public int Iterations { get; set; }
-        public int Dimensions { get; set; }
 
-        public Tuple<double, double> Domain { get; set; }
         public Parameters()
         {
             F = 0.8;
@@ -25,7 +23,6 @@ namespace DifferentialEvolution.DE
             Console.WriteLine("CR: " + CR);
             Console.WriteLine("Population Count: " + ChromosomesCount);
             Console.WriteLine("Iterations: " + Iterations);
-            Console.WriteLine("NoGenes: " + Dimensions);
         }
     }
 }
