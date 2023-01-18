@@ -1,2 +1,3 @@
-cartofi_prajiti C 312 
-burger C 295 
+name symbol kcal Mg Ca
+cartofi_prajiti C 312 79 12
+burger C 295 2 8

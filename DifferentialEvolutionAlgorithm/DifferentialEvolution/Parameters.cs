@@ -16,13 +16,5 @@ namespace DifferentialEvolution.DE
             ChromosomesCount = 20;
             Iterations = 100;
         }
-
-        public void Show()
-        {
-            Console.WriteLine("F: " + F);
-            Console.WriteLine("CR: " + CR);
-            Console.WriteLine("Population Count: " + ChromosomesCount);
-            Console.WriteLine("Iterations: " + Iterations);
-        }
     }
 }

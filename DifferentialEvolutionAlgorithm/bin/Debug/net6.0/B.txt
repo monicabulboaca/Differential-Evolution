@@ -1,2 +1,3 @@
-coca_cola B 38
-caffe_latte B 70
+name symbol kcal Mg Ca
+coca_cola B 38 5 60
+caffe_latte B 70 2 8

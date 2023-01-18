@@ -20,16 +20,12 @@ namespace DifferentialEvolution
             DifferentialEvolutionAlgorithm de = new DifferentialEvolutionAlgorithm(parameters);
 
             de.Solve(new CRDP(), parameters.Iterations, parameters.CR, parameters.F, parameters.ChromosomesCount);
-
         }
     }
 
     public class CRDP : IOptimizationProblem
     {
-
-        public CRDP()
-        {
-        }
+        public CRDP(){ }
 
         public Chromosome MakeChromosome()
         {
@@ -39,15 +35,34 @@ namespace DifferentialEvolution
         public void ComputeFitness(Chromosome cr)
         {
             double kcal = 0;
-            var KC = ReadFromFile.readKcal();
+            ReadFromFile rf = new ReadFromFile();
+            var kcalNutrients = rf.readKcal();
+            var KC = kcalNutrients.Item1;
+            var nutrientsValue = kcalNutrients.Item2;
 
-            // calc kcal
-            for(int i = 0; i < cr.NoGenes; i++)
+            for (int i = 0; i < cr.NoGenes; i++)
             {
                 kcal += KC[i] * cr.Genes[i];
             }
 
-            cr.Fitness = Math.Abs(1200 - kcal);
+            var sum1 = Math.Abs(1200 - kcal);
+
+            var minimumNutrientsValuePerDay = 80;       // in grame / suta de grame
+
+            if (nutrientsValue.Sum() >= minimumNutrientsValuePerDay)
+            {
+                cr.Fitness =  sum1;
+                return;
+            }
+
+            double penalty = 0.0;
+            
+            for(int i=0; i < cr.NoGenes; i++)
+            {
+                penalty += nutrientsValue[i] * cr.Genes[i];
+            }
+
+            cr.Fitness = sum1 + (penalty - minimumNutrientsValuePerDay)/ minimumNutrientsValuePerDay;
         }
     }
 }

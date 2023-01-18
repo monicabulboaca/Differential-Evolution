@@ -1,2 +1,3 @@
-banana F 89	
-mar F 52	
+name symbol kcal Mg Ca
+banana F 89 89 16
+mar F 52 19 10

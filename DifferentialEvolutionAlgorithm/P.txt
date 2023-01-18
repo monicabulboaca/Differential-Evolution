@@ -1,5 +1,0 @@
-carne_pui P 239
-carne_miel P 294
-carne_vita P 250
-carne_oaie P 200
-carne_iepure P 173

@@ -49,7 +49,7 @@ namespace DifferentialEvolution.DE
             //creare copil mutant
             for (int i = 0; i < mutantChild.NoGenes; i++)
             {
-                mutantChild.Genes[i] = cr1.Genes[i] + F * (cr2.Genes[i] - cr3.Genes[i]); // de ce e scadere?
+                mutantChild.Genes[i] = cr1.Genes[i] + F * (cr2.Genes[i] - cr3.Genes[i]); 
             }
 
             return mutantChild;
@@ -96,10 +96,6 @@ namespace DifferentialEvolution.DE
             for (int generation = 0; generation < maxGenerations; generation++)
             {
                 Chromosome[] population = CreatePopulation(problem, populationSize);
-                for (int i = 0; i < population.Length; i++)
-                {
-                    Console.Write(population[i] + "\n");
-                }
 
                 List<Chromosome> newGeneration = new List<Chromosome>();
                 foreach (var child in population.ToList())
