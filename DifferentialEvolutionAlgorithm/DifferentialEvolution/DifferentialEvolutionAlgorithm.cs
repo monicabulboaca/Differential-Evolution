@@ -1,5 +1,5 @@
 ﻿
-namespace DifferentialEvolution.DE
+namespace DifferentialEvolution
 {
     public class DifferentialEvolutionAlgorithm
     {
@@ -118,7 +118,7 @@ namespace DifferentialEvolution.DE
                 population = newGeneration.ToArray();
                 Chromosome best = GetBest(population);
 
-                Console.Write("Pentru generatia {0} valoarea fitness este {1} cu cromozomul [{2}", generation, Math.Round(best.Fitness, 3), best.ToString());
+                Console.Write("Cel mai adaptat individ din generatia {0} are valoarea fitness {1} si genele [{2}", generation, Math.Round(best.Fitness, 3), best.ToString());
                 Console.WriteLine(']');
                 Console.WriteLine("----------------------------------------------------------------------------------------------");
             }
@@ -126,21 +126,21 @@ namespace DifferentialEvolution.DE
 
         public static Chromosome GetBest(Chromosome[] population)
         {
-            //pp. ca elementul maxim este primul din populatie
+            //pp. ca elementul minim este primul din populatie
             double min = population[0].Fitness;
             //obiect nou, copie a celui mai bun individ
-            Chromosome chromWithMaxFitness = new Chromosome(population[0]);
+            Chromosome chromWithMinFitness = new Chromosome(population[0]);
 
             for (int i = 1; i < population.Length; i++)
             {
                 if (population[i].Fitness < min)
                 {
                     min = population[i].Fitness;
-                    chromWithMaxFitness = new Chromosome(population[i]);
+                    chromWithMinFitness = new Chromosome(population[i]);
                 }
             }
 
-            return chromWithMaxFitness;
+            return chromWithMinFitness;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿
 using DEAlgorithm.FileData;
-using DifferentialEvolution.DE;
 
 namespace DifferentialEvolution
 {
@@ -25,7 +24,7 @@ namespace DifferentialEvolution
 
     public class CRDP : IOptimizationProblem
     {
-        public CRDP(){ }
+        public CRDP() { }
 
         public Chromosome MakeChromosome()
         {
@@ -45,24 +44,24 @@ namespace DifferentialEvolution
                 kcal += KC[i] * cr.Genes[i];
             }
 
-            var sum1 = Math.Abs(1200 - kcal);
+            var difference = Math.Abs(1200 - kcal);
 
-            var minimumNutrientsValuePerDay = 80;       // in grame / suta de grame
+            var minimumNutrientsValuePerDay = 80;  
 
             if (nutrientsValue.Sum() >= minimumNutrientsValuePerDay)
             {
-                cr.Fitness =  sum1;
+                cr.Fitness = difference;
                 return;
             }
 
             double penalty = 0.0;
-            
-            for(int i=0; i < cr.NoGenes; i++)
+
+            for (int i = 0; i < cr.NoGenes; i++)
             {
                 penalty += nutrientsValue[i] * cr.Genes[i];
             }
 
-            cr.Fitness = sum1 + (penalty - minimumNutrientsValuePerDay)/ minimumNutrientsValuePerDay;
+            cr.Fitness = difference + (penalty - minimumNutrientsValuePerDay) / minimumNutrientsValuePerDay;
         }
     }
 }

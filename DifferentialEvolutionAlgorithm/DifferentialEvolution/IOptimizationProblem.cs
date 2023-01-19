@@ -1,12 +1,11 @@
-﻿namespace DifferentialEvolution.DE
-{
-    /// <summary>
-    /// Interfata pentru problemele de optimizare
-    /// </summary>
-    public interface IOptimizationProblem
-    {
-        void ComputeFitness(Chromosome c);
+﻿namespace DifferentialEvolution;
 
-        Chromosome MakeChromosome();
-    }
+/// <summary>
+/// Interfata pentru problemele de optimizare
+/// </summary>
+public interface IOptimizationProblem
+{
+    void ComputeFitness(Chromosome c);
+
+    Chromosome MakeChromosome();
 }
