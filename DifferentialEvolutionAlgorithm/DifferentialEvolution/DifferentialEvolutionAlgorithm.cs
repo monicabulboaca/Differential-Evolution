@@ -55,36 +55,21 @@ namespace DifferentialEvolution
             return mutantChild;
         }
 
-        private void Crossover(Chromosome[] population, Chromosome child, Chromosome mutantChild, Chromosome resultCrossover, double CR)
+        private void Crossover(Chromosome[] population, Chromosome child, Chromosome mutantChild, double CR)
         {
-            int delta = _rand.Next(1, population.Length - 1);
+            Chromosome resultCrossover = new Chromosome(child.NoGenes);
+            int punctDivizare = _rand.Next(1, population.Length - 1);//punct divizare
 
             for (int gene = 0; gene < child.NoGenes; gene++)
             {
-                double k = _rand.NextDouble();
-                if (k < CR || gene == delta)
+                double k = _rand.NextDouble(); //numar aleatoriu uniform intre 0 si 1
+                if (k < CR || gene == punctDivizare)
                 {
-                    if (gene > 0.5 && gene < 3)
-                    {
-                        for (int i = 0; i < mutantChild.NoGenes; i++)
-                        {
-                            resultCrossover.Genes[i] = mutantChild.Genes[i];
-                        }
-                    }
-                    else
-                    {
-                        for (int i = 0; i < child.NoGenes; i++)
-                        {
-                            resultCrossover.Genes[i] = child.Genes[i];
-                        }
-                    }
+                    resultCrossover.Genes[gene] = mutantChild.Genes[gene];//resultCrossover = trial vector
                 }
                 else
                 {
-                    for (int i = 0; i < child.NoGenes; i++)
-                    {
-                        resultCrossover.Genes[i] = child.Genes[i];
-                    }
+                    resultCrossover.Genes[gene] = child.Genes[gene];
                 }
             }
         }
@@ -102,8 +87,8 @@ namespace DifferentialEvolution
                 {
                     Chromosome mutantChild = Mutation(population, F);
 
-                    Chromosome resultCrossover = new Chromosome(mutantChild);
-                    Crossover(population, child, mutantChild, resultCrossover, CR);
+                    Chromosome resultCrossover = new Chromosome(17);
+                    Crossover(population, child, mutantChild, CR);
 
                     // selectie
                     resultCrossover.Evaluate(problem);

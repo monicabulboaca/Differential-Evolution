@@ -1,3 +1,4 @@
 name symbol kcal Mg Ca
-cartofi_prajiti C 312 79 12
-burger C 295 2 8
+cartofi_fierti C 90 30 12
+orez C 295 13 30
+paste C 400 10 5

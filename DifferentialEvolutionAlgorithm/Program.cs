@@ -61,7 +61,8 @@ namespace DifferentialEvolution
                 penalty += nutrientsValue[i] * cr.Genes[i];
             }
 
-            cr.Fitness = difference + (penalty - minimumNutrientsValuePerDay) / minimumNutrientsValuePerDay;
+            
+             cr.Fitness = difference + (Math.Abs(penalty - minimumNutrientsValuePerDay) / minimumNutrientsValuePerDay);
         }
     }
 }
